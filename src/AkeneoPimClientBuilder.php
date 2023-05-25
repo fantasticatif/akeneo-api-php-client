@@ -18,6 +18,7 @@ use Akeneo\Pim\ApiClient\Api\MeasurementFamilyApi;
 use Akeneo\Pim\ApiClient\Api\ProductApi;
 use Akeneo\Pim\ApiClient\Api\ProductMediaFileApi;
 use Akeneo\Pim\ApiClient\Api\ProductModelApi;
+use Akeneo\Pim\ApiClient\Api\PublishedProductApi;
 use Akeneo\Pim\ApiClient\Client\AuthenticatedHttpClient;
 use Akeneo\Pim\ApiClient\Client\HttpClient;
 use Akeneo\Pim\ApiClient\Client\ResourceClient;
@@ -171,7 +172,8 @@ class AkeneoPimClientBuilder
             new MeasurementFamilyApi($resourceClient),
             new AssociationTypeApi($resourceClient, $pageFactory, $cursorFactory),
             new FamilyVariantApi($resourceClient, $pageFactory, $cursorFactory),
-            new ProductModelApi($resourceClient, $pageFactory, $cursorFactory)
+            new ProductModelApi($resourceClient, $pageFactory, $cursorFactory),
+            new PublishedProductApi($resourceClient, $pageFactory, $cursorFactory),
         );
 
         return $client;

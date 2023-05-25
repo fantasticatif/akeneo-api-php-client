@@ -17,6 +17,7 @@ use Akeneo\Pim\ApiClient\Api\MeasurementFamilyApiInterface;
 use Akeneo\Pim\ApiClient\Api\MediaFileApiInterface;
 use Akeneo\Pim\ApiClient\Api\ProductApiInterface;
 use Akeneo\Pim\ApiClient\Api\ProductModelApiInterface;
+use Akeneo\Pim\ApiClient\Api\PublishedProductApiInterface;
 use Akeneo\Pim\ApiClient\Security\Authentication;
 
 /**
@@ -76,6 +77,9 @@ class AkeneoPimClient implements AkeneoPimClientInterface
     /** @var MeasurementFamilyApiInterface */
     private $measurementFamilyApi;
 
+    /** @var PublishedProductApiInterface */
+    private $publishedProductApi;
+
     public function __construct(
         Authentication $authentication,
         ProductApiInterface $productApi,
@@ -92,7 +96,8 @@ class AkeneoPimClient implements AkeneoPimClientInterface
         MeasurementFamilyApiInterface $measurementFamilyApi,
         AssociationTypeApiInterface $associationTypeApi,
         FamilyVariantApiInterface $familyVariantApi,
-        ProductModelApiInterface $productModelApi
+        ProductModelApiInterface $productModelApi,
+        PublishedProductApiInterface $publishedProductApi
     ) {
         $this->authentication = $authentication;
         $this->productApi = $productApi;
@@ -110,6 +115,7 @@ class AkeneoPimClient implements AkeneoPimClientInterface
         $this->associationTypeApi = $associationTypeApi;
         $this->familyVariantApi = $familyVariantApi;
         $this->productModelApi = $productModelApi;
+        $this->publishedProductApi = $publishedProductApi;
     }
 
     /**
